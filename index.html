@@ -8,7 +8,14 @@
   <style>
     /* ===== Reset ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Orbitron', sans-serif; background: #1a1a1a; color: #fff; }
+    body { 
+      font-family: 'Orbitron', sans-serif; 
+      background: #1a1a1a; 
+      color: #fff; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+    }
     a { text-decoration: none; color: inherit; }
 
     /* ===== Header ===== */
@@ -31,7 +38,13 @@
     }
 
     /* ===== Main ===== */
-    main { padding: 50px 20px; display: flex; justify-content: center; }
+    main { 
+      flex: 1; /* Prend tout l’espace restant pour pousser le footer en bas */
+      padding: 50px 20px; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+    }
 
     #product-component-1769541382944 {
       background: #2a2a2a;
@@ -42,11 +55,13 @@
       text-align: center;
     }
 
-    /* ===== Footer ===== */
+    /* ===== Footer sticky ===== */
     footer {
-      margin-top: 50px;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
       text-align: center;
-      padding: 20px;
+      padding: 10px 0;
       background: #111;
       font-size: 14px;
       color: #ff4d4d;
