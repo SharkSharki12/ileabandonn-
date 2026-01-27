@@ -1,86 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ma Boutique Gaming</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* ===== Reset ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Orbitron', sans-serif; 
-      background: #1a1a1a; 
-      color: #fff; 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-    }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ile Abandonnée - Boutique Gaming</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; display:flex; flex-direction:column; min-height:100vh;}
+a { text-decoration:none; color:inherit; }
 
-    /* ===== Header ===== */
-    header {
-      background: linear-gradient(90deg, #ff4d4d, #ff9900);
-      padding: 20px 40px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
-    header h1 {
-      font-size: 48px;
-      color: #fff;
-      text-shadow: 2px 2px 5px #000;
-    }
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
-    }
+/* ===== Header ===== */
+header {
+  background: linear-gradient(90deg, #ff4d4d, #ff9900);
+  padding: 40px 20px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,0.5);
+  position:relative;
+  overflow:hidden;
+}
+header::after {
+  content:"";
+  position:absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+  animation: shine 3s linear infinite;
+}
+@keyframes shine {
+  0% {transform:translateX(-100%);}
+  100% {transform:translateX(100%);}
+}
+header h1 {
+  font-size:48px;
+  color:#fff;
+  text-shadow:2px 2px 10px #000;
+}
+header p {
+  margin-top:10px;
+  font-size:18px;
+  color:#fff;
+  text-shadow:1px 1px 3px #000;
+}
 
-    /* ===== Main ===== */
-    main { 
-      flex: 1; /* Prend tout l’espace restant pour pousser le footer en bas */
-      padding: 50px 20px; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center;
-    }
+/* ===== Main ===== */
+main { flex:1; display:flex; flex-direction:column; align-items:center; padding:40px 20px; gap:50px;}
 
-    #product-component-1769541382944 {
-      background: #2a2a2a;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
-      max-width: 400px;
-      text-align: center;
-    }
+/* Product container */
+#product-component-1769541382944 {
+  background:#222;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(255, 77, 77,0.5);
+  max-width:400px;
+  text-align:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#product-component-1769541382944:hover {
+  transform: translateY(-5px);
+  box-shadow:0 15px 35px rgba(255, 77, 77,0.8);
+}
 
-    /* ===== Footer sticky ===== */
-    footer {
-      position: sticky;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-      background: #111;
-      font-size: 14px;
-      color: #ff4d4d;
-    }
+/* ===== About Section ===== */
+section#about {
+  max-width:800px;
+  background:#1a1a1a;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 5px 25px rgba(255,77,77,0.4);
+  text-align:center;
+}
+section#about img {
+  max-width:100%;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(255,77,77,0.6);
+}
+section#about h2 {
+  font-size:36px;
+  color:#ff4d4d;
+  margin-bottom:20px;
+}
+section#about p {
+  font-size:18px;
+  line-height:1.5;
+}
 
-    /* ===== Shopify button override ===== */
-    .shopify-buy__btn {
-      background-color: #ff4d4d !important;
-      color: #fff !important;
-      border-radius: 10px !important;
-      font-size: 18px !important;
-      padding: 15px 40px !important;
-      transition: all 0.3s ease;
-    }
-    .shopify-buy__btn:hover {
-      background-color: #ff9900 !important;
-      color: #fff !important;
-    }
-  </style>
+/* ===== Newsletter ===== */
+section#newsletter {
+  max-width:500px;
+  text-align:center;
+}
+section#newsletter input[type="email"] {
+  padding:15px;
+  width:70%;
+  border-radius:10px 0 0 10px;
+  border:none;
+  font-size:16px;
+}
+section#newsletter button {
+  padding:15px 25px;
+  border:none;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:0 10px 10px 0;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+section#newsletter button:hover {
+  background:#ff9900;
+}
+
+/* ===== Footer sticky ===== */
+footer {
+  position:sticky;
+  bottom:0;
+  width:100%;
+  text-align:center;
+  padding:10px 0;
+  background:#111;
+  font-size:14px;
+  color:#ff4d4d;
+}
+
+/* ===== Shopify button override ===== */
+.shopify-buy__btn {
+  background-color:#ff4d4d !important;
+  color:#fff !important;
+  border-radius:10px !important;
+  font-size:18px !important;
+  padding:15px 40px !important;
+  transition: all 0.3s ease;
+}
+.shopify-buy__btn:hover { background-color:#ff9900 !important; color:#fff !important; }
+</style>
 </head>
 <body>
 
@@ -92,6 +146,26 @@
 <main>
   <!-- Shopify Product -->
   <div id="product-component-1769541382944"></div>
+
+  <!-- About Section -->
+  <section id="about">
+    <img src="https://via.placeholder.com/700x300.png?text=Image+du+jeu" alt="Image du jeu">
+    <h2>À propos du jeu</h2>
+    <p>
+      Explore l’île abandonnée dans ce jeu palpitant ! Combat, survie et mystères t’attendent.  
+      Télécharge-le maintenant et rejoins l’aventure ! 
+    </p>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter">
+    <h2>Reste informé</h2>
+    <p>Inscris-toi pour recevoir les dernières nouveautés et mises à jour du jeu :</p>
+    <form>
+      <input type="email" placeholder="Ton e-mail" required>
+      <button type="submit">S’inscrire</button>
+    </form>
+  </section>
 </main>
 
 <footer>
@@ -101,44 +175,32 @@
 <!-- ===== Shopify Buy Button Script ===== -->
 <script type="text/javascript">
 (function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else { loadScript(); }
+  var scriptURL='https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if(window.ShopifyBuy){
+    if(window.ShopifyBuy.UI){ ShopifyBuyInit(); } else { loadScript(); }
   } else { loadScript(); }
 
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
+  function loadScript(){
+    var script=document.createElement('script');
+    script.async=true;
+    script.src=scriptURL;
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload=ShopifyBuyInit;
   }
 
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'f671b4-mj.myshopify.com',
-      storefrontAccessToken: 'd32a8448ffd242c5e468dc91b5fd2730',
+  function ShopifyBuyInit(){
+    var client=ShopifyBuy.buildClient({
+      domain:'f671b4-mj.myshopify.com',
+      storefrontAccessToken:'d32a8448ffd242c5e468dc91b5fd2730'
     });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '15496865120587',
-        node: document.getElementById('product-component-1769541382944'),
-        moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
-        options: {
-          "product": {
-            "text": { "button": "Ajouter au panier" },
-            "styles": {
-              "button": { "font-family": "Orbitron, sans-serif", "font-size": "18px" }
-            }
-          },
-          "cart": {
-            "text": { "button": "Valider le panier" },
-            "styles": {
-              "button": { "font-family": "Orbitron, sans-serif", "font-size": "18px" }
-            }
-          }
+    ShopifyBuy.UI.onReady(client).then(function(ui){
+      ui.createComponent('product',{
+        id:'15496865120587',
+        node:document.getElementById('product-component-1769541382944'),
+        moneyFormat:'%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
+        options:{
+          "product":{"text":{"button":"Ajouter au panier"},"styles":{"button":{"font-family":"Orbitron, sans-serif","font-size":"18px"}}},
+          "cart":{"text":{"button":"Valider le panier"},"styles":{"button":{"font-family":"Orbitron, sans-serif","font-size":"18px"}}}
         }
       });
     });
