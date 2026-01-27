@@ -6,23 +6,41 @@
 <title>Ile Abandonnée - Boutique Gaming</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ===== Global ===== */
 html { scroll-behavior: smooth; }
-body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; }
+body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden; }
+
+/* ===== Background animé subtil ===== */
+body::before {
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:radial-gradient(circle at 50% 50%, rgba(255,77,77,0.1), transparent 70%);
+  animation: bgPulse 8s infinite alternate;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes bgPulse {
+  0% { transform: scale(1); opacity:0.2; }
+  100% { transform: scale(1.2); opacity:0.3; }
+}
 
 /* ===== Header ===== */
 header {
   text-align:center;
-  padding:60px 20px;
+  padding:80px 20px;
   background: linear-gradient(90deg,#ff4d4d,#ff9900);
+  background-size:200% 100%;
   animation: gradientShift 10s infinite alternate;
+  position:relative;
+  overflow:hidden;
 }
 @keyframes gradientShift {
   0% { background-position:0 0; }
   100% { background-position:100% 0; }
 }
-header h1 { font-size:48px; text-shadow:2px 2px 8px #000; }
-header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 4px #000; }
+header h1 { font-size:56px; text-shadow:2px 2px 12px #000; z-index:1; position:relative; }
+header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 6px #000; z-index:1; position:relative; }
 
 /* ===== Menu sticky ===== */
 nav {
@@ -45,28 +63,24 @@ nav a {
   font-size:16px;
   transition:0.3s, box-shadow 0.3s;
 }
-nav a:hover {
-  background:#ff9900;
-  box-shadow:0 0 15px #ff9900;
-}
+nav a:hover { background:#ff9900; box-shadow:0 0 15px #ff9900; }
 
 /* ===== Main ===== */
 main { flex:1; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:50px; }
 
 /* ===== Section jeux ===== */
-section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; }
+section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; z-index:1; position:relative; }
 .game-card {
   background:#222;
   border-radius:20px;
   padding:20px;
   text-align:center;
   box-shadow:0 5px 20px rgba(255,77,77,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s;
+  opacity:0;
+  transform: translateY(50px);
 }
-.game-card:hover {
-  transform: translateY(-10px) rotateX(2deg);
-  box-shadow:0 15px 40px rgba(255,153,0,0.8);
-}
+.game-card.show { opacity:1; transform: translateY(0); }
 .game-card .placeholder-img {
   width:100%;
   height:150px;
@@ -92,13 +106,10 @@ section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250p
   transition:0.3s, box-shadow 0.3s;
   box-shadow:0 0 0 #ff4d4d;
 }
-.game-card .btn-placeholder:hover {
-  background:#ff9900;
-  box-shadow:0 0 20px #ff9900;
-}
+.game-card .btn-placeholder:hover { background:#ff9900; box-shadow:0 0 20px #ff9900; }
 
 /* ===== Section combo ===== */
-section#combo { background:#1a1a1a; border-radius:20px; padding:30px; max-width:900px; text-align:center; box-shadow:0 5px 25px rgba(255,77,77,0.4);}
+section#combo { background:#1a1a1a; border-radius:20px; padding:30px; max-width:900px; text-align:center; box-shadow:0 5px 25px rgba(255,77,77,0.4); z-index:1; position:relative; }
 section#combo h2 { font-size:36px; color:#ff4d4d; margin-bottom:30px; }
 section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
 .combo-card {
@@ -106,13 +117,12 @@ section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit
   border-radius:15px;
   padding:20px;
   box-shadow:0 5px 15px rgba(255,77,77,0.5);
-  transition:0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:0.3s, transform 0.5s, box-shadow 0.5s, opacity 0.5s;
   text-align:center;
+  opacity:0;
+  transform: translateY(50px);
 }
-.combo-card:hover {
-  transform: translateY(-10px) rotateX(2deg);
-  box-shadow:0 10px 30px rgba(255,153,0,0.8);
-}
+.combo-card.show { opacity:1; transform: translateY(0); }
 .combo-card h3 { font-size:20px; color:#ff4d4d; margin-bottom:10px; }
 .combo-card p { font-size:16px; margin-bottom:15px; }
 .combo-card .btn-placeholder {
@@ -127,13 +137,12 @@ section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit
   transition:0.3s, box-shadow 0.3s;
   box-shadow:0 0 0 #ff4d4d;
 }
-.combo-card .btn-placeholder:hover {
-  background:#ff9900;
-  box-shadow:0 0 20px #ff9900;
-}
+.combo-card .btn-placeholder:hover { background:#ff9900; box-shadow:0 0 20px #ff9900; }
 
 /* ===== Footer ===== */
 footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; position:sticky; bottom:0; width:100%; }
+
+/* ===== Scroll animations JS ===== */
 </style>
 </head>
 <body>
@@ -151,62 +160,22 @@ footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; posi
 <main>
   <!-- Section Jeux -->
   <section id="games">
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 1</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 2</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 3</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 4</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 5</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
-    <div class="game-card">
-      <div class="placeholder-img">Bande-annonce à ajouter</div>
-      <h3>Ile Abandonnée Chapitre 6</h3>
-      <div class="btn-placeholder">Acheter</div>
-    </div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 1</h3><div class="btn-placeholder">Acheter</div></div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 2</h3><div class="btn-placeholder">Acheter</div></div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 3</h3><div class="btn-placeholder">Acheter</div></div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 4</h3><div class="btn-placeholder">Acheter</div></div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 5</h3><div class="btn-placeholder">Acheter</div></div>
+    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 6</h3><div class="btn-placeholder">Acheter</div></div>
   </section>
 
   <!-- Section Combo -->
   <section id="combo">
     <h2>Combo spécial</h2>
     <div class="combo-grid">
-      <div class="combo-card">
-        <h3>Ile Abandonnée Chapitre 1+2+3+4</h3>
-        <p>80€</p>
-        <div class="btn-placeholder">Acheter</div>
-      </div>
-      <div class="combo-card">
-        <h3>Ile Abandonnée Chapitre 1+2</h3>
-        <p>50€</p>
-        <div class="btn-placeholder">Acheter</div>
-      </div>
-      <div class="combo-card">
-        <h3>Ile Abandonnée Chapitre 3+4</h3>
-        <p>50€</p>
-        <div class="btn-placeholder">Acheter</div>
-      </div>
-      <div class="combo-card">
-        <h3>Ile Abandonnée Chapitre 5+6</h3>
-        <p>50€</p>
-        <div class="btn-placeholder">Acheter</div>
-      </div>
+      <div class="combo-card"><h3>Ile Abandonnée Chapitre 1+2+3+4</h3><p>80€</p><div class="btn-placeholder">Acheter</div></div>
+      <div class="combo-card"><h3>Ile Abandonnée Chapitre 1+2</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
+      <div class="combo-card"><h3>Ile Abandonnée Chapitre 3+4</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
+      <div class="combo-card"><h3>Ile Abandonnée Chapitre 5+6</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
     </div>
   </section>
 </main>
@@ -214,6 +183,17 @@ footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; posi
 <footer>
 &copy; 2026 Ile Abandonnée • Tous droits réservés
 </footer>
+
+<script>
+// ===== Animation au scroll =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{ threshold: 0.2 });
+
+document.querySelectorAll('.game-card, .combo-card').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
