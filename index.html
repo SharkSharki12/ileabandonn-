@@ -2,115 +2,134 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Boutique</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Boutique Gaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
+    /* ===== Reset ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Orbitron', sans-serif; background: #1a1a1a; color: #fff; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Header ===== */
+    header {
+      background: linear-gradient(90deg, #ff4d4d, #ff9900);
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 2px 2px 5px #000;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
     }
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+    /* ===== Main ===== */
+    main { padding: 50px 20px; display: flex; justify-content: center; }
+
+    #product-component-1769541382944 {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 14px;
+      color: #ff4d4d;
+    }
+
+    /* ===== Shopify button override ===== */
+    .shopify-buy__btn {
+      background-color: #ff4d4d !important;
+      color: #fff !important;
+      border-radius: 10px !important;
+      font-size: 18px !important;
+      padding: 15px 40px !important;
+      transition: all 0.3s ease;
+    }
+    .shopify-buy__btn:hover {
+      background-color: #ff9900 !important;
+      color: #fff !important;
     }
   </style>
 </head>
 <body>
 
-  <h1>Ma boutique</h1>
+<header>
+  <h1>🔥 Ile Abandonnée 🔥</h1>
+  <p>Ton jeu vidéo ultime, prêt à être téléchargé !</p>
+</header>
 
-  <div id='product-component-1769541382944'></div>
+<main>
+  <!-- Shopify Product -->
+  <div id="product-component-1769541382944"></div>
+</main>
 
-  <script type="text/javascript">
-  (function () {
-    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-    if (window.ShopifyBuy) {
-      if (window.ShopifyBuy.UI) {
-        ShopifyBuyInit();
-      } else {
-        loadScript();
-      }
-    } else {
-      loadScript();
-    }
-    function loadScript() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = scriptURL;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-      script.onload = ShopifyBuyInit;
-    }
-    function ShopifyBuyInit() {
-      var client = ShopifyBuy.buildClient({
-        domain: 'f671b4-mj.myshopify.com',
-        storefrontAccessToken: 'd32a8448ffd242c5e468dc91b5fd2730',
-      });
-      ShopifyBuy.UI.onReady(client).then(function (ui) {
-        ui.createComponent('product', {
-          id: '15496865120587',
-          node: document.getElementById('product-component-1769541382944'),
-          moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
-          options: {
-            "product": {
-              "styles": {
-                "button": {
-                  "font-family": "Arvo, serif",
-                  "font-size": "17px",
-                  "padding-top": "16.5px",
-                  "padding-bottom": "16.5px",
-                  "color": "#000000",
-                  "background-color": "#adb657",
-                  ":hover": { "background-color": "#9ca44e" },
-                  ":focus": { "background-color": "#9ca44e" },
-                  "border-radius": "8px"
-                }
-              },
-              "text": { "button": "Add to cart" },
-              "googleFonts": ["Arvo"]
-            },
-            "cart": {
-              "styles": {
-                "button": {
-                  "font-family": "Arvo, serif",
-                  "font-size": "17px",
-                  "padding-top": "16.5px",
-                  "padding-bottom": "16.5px",
-                  "color": "#000000",
-                  "background-color": "#adb657",
-                  ":hover": { "background-color": "#9ca44e" },
-                  ":focus": { "background-color": "#9ca44e" },
-                  "border-radius": "8px"
-                }
-              },
-              "text": { "button": "Checkout" },
-              "googleFonts": ["Arvo"]
-            },
-            "toggle": {
-              "styles": {
-                "toggle": {
-                  "font-family": "Arvo, serif",
-                  "background-color": "#adb657",
-                  ":hover": { "background-color": "#9ca44e" },
-                  ":focus": { "background-color": "#9ca44e" }
-                },
-                "iconPath": { "fill": "#000000" }
-              },
-              "googleFonts": ["Arvo"]
+<footer>
+  &copy; 2026 Ile Abandonnée • Tous droits réservés
+</footer>
+
+<!-- ===== Shopify Buy Button Script ===== -->
+<script type="text/javascript">
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else { loadScript(); }
+  } else { loadScript(); }
+
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'f671b4-mj.myshopify.com',
+      storefrontAccessToken: 'd32a8448ffd242c5e468dc91b5fd2730',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '15496865120587',
+        node: document.getElementById('product-component-1769541382944'),
+        moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
+        options: {
+          "product": {
+            "text": { "button": "Ajouter au panier" },
+            "styles": {
+              "button": { "font-family": "Orbitron, sans-serif", "font-size": "18px" }
+            }
+          },
+          "cart": {
+            "text": { "button": "Valider le panier" },
+            "styles": {
+              "button": { "font-family": "Orbitron, sans-serif", "font-size": "18px" }
             }
           }
-        });
+        }
       });
-    }
-  })();
-  </script>
-
-</body>
-</html>
-
-<body>
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
