@@ -3,222 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ile Abandonnée - Boutique Gaming Pro</title>
+<title>Ile Abandonnée - Boutique Gaming</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ===== Reset ===== */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; display:flex; flex-direction:column; min-height:100vh;}
-a { text-decoration:none; color:inherit; }
+body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+header { text-align:center; padding:60px 20px; background: linear-gradient(90deg,#ff4d4d,#ff9900); }
+header h1 { font-size:48px; text-shadow:2px 2px 8px #000;}
+header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 4px #000;}
 
-/* ===== Header avec Parallax ===== */
-header {
-  background: url('https://via.placeholder.com/1920x600.png?text=Ile+Abandonnée') no-repeat center center;
-  background-size: cover;
-  padding: 120px 20px 60px;
-  text-align:center;
-  color:#fff;
-  position:relative;
-  overflow:hidden;
-}
-header::before {
-  content:"";
-  position:absolute;
-  top:0; left:0; width:100%; height:100%;
-  background: linear-gradient(180deg, rgba(255,77,77,0.7), rgba(255,153,0,0.7));
-}
-header h1 {
-  position:relative;
-  font-size:64px;
-  text-shadow: 3px 3px 15px #000;
-  animation: glow 2s infinite alternate;
-}
-header p {
-  position:relative;
-  font-size:22px;
-  margin-top:10px;
-  text-shadow:1px 1px 5px #000;
-}
+main { flex:1; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:50px; }
 
-/* ===== Glow Animation ===== */
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #ff4d4d,0 0 10px #ff9900,0 0 20px #ff4d4d; }
-  100% { text-shadow: 0 0 20px #ff4d4d,0 0 30px #ff9900,0 0 40px #ff4d4d; }
-}
+/* ===== Grille des jeux ===== */
+section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; }
 
-/* ===== Main ===== */
-main { flex:1; display:flex; flex-direction:column; align-items:center; padding:40px 20px; gap:70px;}
-
-/* ===== Product container avec Pulse ===== */
-#product-component-1769541382944 {
+.game-card {
   background:#222;
-  padding:35px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(255,77,77,0.5);
-  max-width:400px;
+  padding:20px;
   text-align:center;
+  box-shadow:0 5px 20px rgba(255,77,77,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: pulse 3s infinite alternate;
 }
-#product-component-1769541382944:hover {
-  transform: translateY(-5px);
-  box-shadow:0 15px 45px rgba(255,77,77,0.8);
-}
-@keyframes pulse {
-  0% { box-shadow:0 10px 30px rgba(255,77,77,0.5); }
-  100% { box-shadow:0 15px 45px rgba(255,153,0,0.8); }
-}
+.game-card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,153,0,0.7); }
 
-/* ===== About Section ===== */
-section#about {
-  max-width:900px;
-  background:#1a1a1a;
-  border-radius:20px;
-  padding:40px;
-  box-shadow:0 5px 25px rgba(255,77,77,0.4);
-  text-align:center;
-}
-section#about img {
+.game-card img, .game-card video {
   max-width:100%;
   border-radius:15px;
-  margin-bottom:25px;
-  box-shadow:0 5px 20px rgba(255,77,77,0.6);
+  margin-bottom:15px;
 }
-section#about h2 { font-size:40px; color:#ff4d4d; margin-bottom:20px; }
-section#about p { font-size:18px; line-height:1.5; }
+.game-card h3 { font-size:24px; color:#ff4d4d; margin-bottom:10px; }
+.game-card p { font-size:16px; line-height:1.4; }
 
-/* ===== Multi-product Section ===== */
-section#products {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-}
+/* ===== Section combo ===== */
+section#combo { background:#1a1a1a; border-radius:20px; padding:30px; max-width:800px; text-align:center; box-shadow:0 5px 25px rgba(255,77,77,0.4);}
+section#combo h2 { font-size:36px; color:#ff4d4d; margin-bottom:20px;}
+section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap:20px; }
+.combo-card { background:#222; border-radius:15px; padding:20px; box-shadow:0 5px 15px rgba(255,77,77,0.5); transition:0.3s; }
+.combo-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(255,153,0,0.7); }
 
-/* ===== Newsletter ===== */
-section#newsletter {
-  max-width:500px;
-  text-align:center;
-}
-section#newsletter input[type="email"] {
-  padding:15px;
-  width:65%;
-  border-radius:10px 0 0 10px;
-  border:none;
-  font-size:16px;
-}
-section#newsletter button {
-  padding:15px 25px;
-  border:none;
-  background:#ff4d4d;
-  color:#fff;
-  border-radius:0 10px 10px 0;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s;
-}
-section#newsletter button:hover { background:#ff9900; }
+/* ===== Footer ===== */
+footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; position:sticky; bottom:0; width:100%; }
 
-/* ===== Footer sticky ===== */
-footer {
-  position:sticky;
-  bottom:0;
-  width:100%;
-  text-align:center;
-  padding:10px 0;
-  background:#111;
-  font-size:14px;
-  color:#ff4d4d;
-}
-
-/* ===== Shopify button override ===== */
-.shopify-buy__btn {
-  background-color:#ff4d4d !important;
-  color:#fff !important;
-  border-radius:12px !important;
-  font-size:18px !important;
-  padding:15px 45px !important;
-  transition: all 0.3s ease;
-}
-.shopify-buy__btn:hover { background-color:#ff9900 !important; color:#fff !important; }
+/* ===== Boutons placeholder ===== */
+.btn-placeholder { display:inline-block; padding:12px 30px; background:#ff4d4d; color:#fff; border-radius:10px; margin-top:10px; font-size:16px; cursor:pointer; transition:0.3s;}
+.btn-placeholder:hover { background:#ff9900; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🔥 Ile Abandonnée 🔥</h1>
-  <p>Ton jeu vidéo ultime, prêt à être téléchargé !</p>
+<h1>🔥 Ile Abandonnée 🔥</h1>
+<p>Ta boutique gaming ultime</p>
 </header>
 
 <main>
-  <!-- Shopify Product -->
-  <div id="product-component-1769541382944"></div>
-
-  <!-- About Section -->
-  <section id="about">
-    <img src="https://via.placeholder.com/800x350.png?text=Image+du+jeu" alt="Image du jeu">
-    <h2>À propos du jeu</h2>
-    <p>Explore l’île abandonnée dans ce jeu palpitant ! Combat, survie et mystères t’attendent.  
-    Télécharge-le maintenant et rejoins l’aventure !</p>
+  <!-- Section Jeux -->
+  <section id="games">
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
+      <h3>Jeu 1</h3>
+      <p>Bande-annonce du jeu 1</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
+      <h3>Jeu 2</h3>
+      <p>Bande-annonce du jeu 2</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
+      <h3>Jeu 3</h3>
+      <p>Bande-annonce du jeu 3</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
+      <h3>Jeu 4</h3>
+      <p>Bande-annonce du jeu 4</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
+      <h3>Jeu 5</h3>
+      <p>Bande-annonce du jeu 5</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
+    <div class="game-card">
+      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
+      <h3>Jeu 6</h3>
+      <p>Bande-annonce du jeu 6</p>
+      <div class="btn-placeholder">Acheter</div>
+    </div>
   </section>
 
-  <!-- Multi-product Section (pour futurs jeux) -->
-  <section id="products">
-    <!-- Exemples futurs produits -->
-    <div id="product-component-1"></div>
-    <div id="product-component-2"></div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section id="newsletter">
-    <h2>Reste informé</h2>
-    <p>Inscris-toi pour recevoir les dernières nouveautés et mises à jour du jeu :</p>
-    <form>
-      <input type="email" placeholder="Ton e-mail" required>
-      <button type="submit">S’inscrire</button>
-    </form>
+  <!-- Section Combo -->
+  <section id="combo">
+    <h2>Combo spécial</h2>
+    <div class="combo-grid">
+      <div class="combo-card">
+        <h3>Jeux 1+2+3+4</h3>
+        <p>80€</p>
+        <div class="btn-placeholder">Acheter</div>
+      </div>
+      <div class="combo-card">
+        <h3>Jeux 1+2</h3>
+        <p>50€</p>
+        <div class="btn-placeholder">Acheter</div>
+      </div>
+      <div class="combo-card">
+        <h3>Jeux 3+4</h3>
+        <p>50€</p>
+        <div class="btn-placeholder">Acheter</div>
+      </div>
+      <div class="combo-card">
+        <h3>Jeux 5+6</h3>
+        <p>50€</p>
+        <div class="btn-placeholder">Acheter</div>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer>
-  &copy; 2026 Ile Abandonnée • Tous droits réservés
+&copy; 2026 Ile Abandonnée • Tous droits réservés
 </footer>
-
-<!-- ===== Shopify Buy Button Script ===== -->
-<script type="text/javascript">
-(function () {
-  var scriptURL='https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if(window.ShopifyBuy){
-    if(window.ShopifyBuy.UI){ ShopifyBuyInit(); } else { loadScript(); }
-  } else { loadScript(); }
-
-  function loadScript(){
-    var script=document.createElement('script');
-    script.async=true;
-    script.src=scriptURL;
-    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload=ShopifyBuyInit;
-  }
-
-  function ShopifyBuyInit(){
-    var client=ShopifyBuy.buildClient({
-      domain:'f671b4-mj.myshopify.com',
-      storefrontAccessToken:'d32a8448ffd242c5e468dc91b5fd2730'
-    });
-    ShopifyBuy.UI.onReady(client).then(function(ui){
-      ui.createComponent('product',{
-        id:'15496865120587',
-        node:document.getElementById('product-component-1769541382944'),
-        moneyFormat:'%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
-        options:{
-          "product":{"text":{"button":"Ajouter au panier"},"styles":{"button":{"font-family":"Orbitron, sans-serif","font-size":"18px"}}},
-          "cart":{"text":{"button":"Valider le panier"},"styles":{"button":{"font-family":"Orbitron, sans-serif","font-size":"18px"}}}
-        }
-      });
-    });
-  }
-})();
-</script>
 
 </body>
 </html>
