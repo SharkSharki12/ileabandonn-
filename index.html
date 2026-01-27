@@ -6,12 +6,25 @@
 <title>Ile Abandonnée - Boutique Gaming</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
-header { text-align:center; padding:60px 20px; background: linear-gradient(90deg,#ff4d4d,#ff9900); }
-header h1 { font-size:48px; text-shadow:2px 2px 8px #000;}
-header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 4px #000;}
+/* ===== Global ===== */
+html { scroll-behavior: smooth; }
+body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; }
 
-/* ===== Menu fixe ===== */
+/* ===== Header ===== */
+header {
+  text-align:center;
+  padding:60px 20px;
+  background: linear-gradient(90deg,#ff4d4d,#ff9900);
+  animation: gradientShift 10s infinite alternate;
+}
+@keyframes gradientShift {
+  0% { background-position:0 0; }
+  100% { background-position:100% 0; }
+}
+header h1 { font-size:48px; text-shadow:2px 2px 8px #000; }
+header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 4px #000; }
+
+/* ===== Menu sticky ===== */
 nav {
   position: sticky;
   top:0;
@@ -21,13 +34,27 @@ nav {
   text-align:center;
   box-shadow:0 2px 10px rgba(255,77,77,0.5);
 }
-nav a { display:inline-block; margin:0 10px; padding:10px 25px; background:#ff4d4d; color:#fff; border-radius:10px; text-decoration:none; font-size:16px; transition:0.3s;}
-nav a:hover { background:#ff9900; }
+nav a {
+  display:inline-block;
+  margin:0 10px;
+  padding:10px 25px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:16px;
+  transition:0.3s, box-shadow 0.3s;
+}
+nav a:hover {
+  background:#ff9900;
+  box-shadow:0 0 15px #ff9900;
+}
 
-/* ===== Grille des jeux ===== */
+/* ===== Main ===== */
 main { flex:1; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:50px; }
-section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; }
 
+/* ===== Section jeux ===== */
+section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; }
 .game-card {
   background:#222;
   border-radius:20px;
@@ -36,8 +63,10 @@ section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250p
   box-shadow:0 5px 20px rgba(255,77,77,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.game-card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,153,0,0.7); }
-
+.game-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow:0 15px 40px rgba(255,153,0,0.8);
+}
 .game-card .placeholder-img {
   width:100%;
   height:150px;
@@ -50,21 +79,58 @@ section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250p
   color:#777;
   font-size:16px;
 }
-
 .game-card h3 { font-size:24px; color:#ff4d4d; margin-bottom:15px; }
-.game-card .btn-placeholder { display:block; margin:0 auto; padding:12px 30px; background:#ff4d4d; color:#fff; border-radius:10px; font-size:16px; cursor:pointer; transition:0.3s;}
-.game-card .btn-placeholder:hover { background:#ff9900; }
+.game-card .btn-placeholder {
+  display:block;
+  margin:0 auto;
+  padding:12px 30px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s, box-shadow 0.3s;
+  box-shadow:0 0 0 #ff4d4d;
+}
+.game-card .btn-placeholder:hover {
+  background:#ff9900;
+  box-shadow:0 0 20px #ff9900;
+}
 
 /* ===== Section combo ===== */
 section#combo { background:#1a1a1a; border-radius:20px; padding:30px; max-width:900px; text-align:center; box-shadow:0 5px 25px rgba(255,77,77,0.4);}
-section#combo h2 { font-size:36px; color:#ff4d4d; margin-bottom:30px;}
+section#combo h2 { font-size:36px; color:#ff4d4d; margin-bottom:30px; }
 section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
-.combo-card { background:#222; border-radius:15px; padding:20px; box-shadow:0 5px 15px rgba(255,77,77,0.5); transition:0.3s; text-align:center;}
-.combo-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(255,153,0,0.7); }
+.combo-card {
+  background:#222;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 5px 15px rgba(255,77,77,0.5);
+  transition:0.3s, transform 0.3s, box-shadow 0.3s;
+  text-align:center;
+}
+.combo-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow:0 10px 30px rgba(255,153,0,0.8);
+}
 .combo-card h3 { font-size:20px; color:#ff4d4d; margin-bottom:10px; }
 .combo-card p { font-size:16px; margin-bottom:15px; }
-.combo-card .btn-placeholder { display:block; margin:0 auto; padding:10px 25px; background:#ff4d4d; color:#fff; border-radius:10px; font-size:16px; cursor:pointer; transition:0.3s;}
-.combo-card .btn-placeholder:hover { background:#ff9900; }
+.combo-card .btn-placeholder {
+  display:block;
+  margin:0 auto;
+  padding:10px 25px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s, box-shadow 0.3s;
+  box-shadow:0 0 0 #ff4d4d;
+}
+.combo-card .btn-placeholder:hover {
+  background:#ff9900;
+  box-shadow:0 0 20px #ff9900;
+}
 
 /* ===== Footer ===== */
 footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; position:sticky; bottom:0; width:100%; }
