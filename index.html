@@ -26,11 +26,19 @@ section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250p
 }
 .game-card:hover { transform: translateY(-5px); box-shadow:0 10px 30px rgba(255,153,0,0.7); }
 
-.game-card img, .game-card video {
-  max-width:100%;
+.game-card .placeholder-img {
+  width:100%;
+  height:150px;
+  background:#333;
   border-radius:15px;
   margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:16px;
 }
+
 .game-card h3 { font-size:24px; color:#ff4d4d; margin-bottom:10px; }
 .game-card p { font-size:16px; line-height:1.4; }
 
@@ -60,39 +68,33 @@ footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; posi
   <!-- Section Jeux -->
   <section id="games">
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
-      <h3>Jeu 1</h3>
-      <p>Bande-annonce du jeu 1</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 1</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
-      <h3>Jeu 2</h3>
-      <p>Bande-annonce du jeu 2</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 2</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
-      <h3>Jeu 3</h3>
-      <p>Bande-annonce du jeu 3</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 3</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
-      <h3>Jeu 4</h3>
-      <p>Bande-annonce du jeu 4</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 4</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
-      <h3>Jeu 5</h3>
-      <p>Bande-annonce du jeu 5</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 5</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
     <div class="game-card">
-      <video src="https://www.w3schools.com/html/movie.mp4" controls></video>
-      <h3>Jeu 6</h3>
-      <p>Bande-annonce du jeu 6</p>
+      <div class="placeholder-img">Bande-annonce à ajouter</div>
+      <h3>Ile Abandonnée Chapitre 6</h3>
       <div class="btn-placeholder">Acheter</div>
     </div>
   </section>
