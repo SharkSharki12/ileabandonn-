@@ -3,143 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ile Abandonnée — Boutique Officielle</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
-
+<title>Ile Abandonnée - Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --primary:#FF2E2E;
-  --secondary:#FFD32E;
-  --dark:#0A0A0A;
-  --card:#1b1b1b;
-}
+body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+header { text-align:center; padding:60px 20px; background: linear-gradient(90deg,#ff4d4d,#ff9900); }
+header h1 { font-size:48px; text-shadow:2px 2px 10px #000; }
+header p { font-size:18px; margin-top:10px; }
 
-body{
-  margin:0; padding:0;
-  background:var(--dark);
-  color:white;
-  font-family:'Orbitron', sans-serif;
-  overflow-x:hidden;
-}
+nav { text-align:center; margin:20px 0; }
+nav a { display:inline-block; margin:0 10px; padding:10px 25px; background:#ff4d4d; color:#fff; border-radius:10px; text-decoration:none; font-size:16px; transition:0.25s; }
+nav a:hover { background:#ff9900; transform:translateY(-3px); }
 
-/* HEADER */
-header{
-  padding:80px 20px;
-  text-align:center;
-  background:linear-gradient(90deg,#FF2E2E,#FFD32E);
-}
-header h1{
-  font-size:60px;
-  font-family:'Fredoka One', sans-serif;
-  color:white;
-}
+main { flex:1; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:50px; }
 
-/* NAV */
-nav{
-  display:flex;
-  justify-content:center;
-  gap:20px;
+/* Games Grid */
+section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; }
+
+.game-card {
+  background:#1d1d1d;
+  border-radius:20px;
   padding:20px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(255,77,77,0.3);
+  transition:0.35s;
+  transform:perspective(500px) translateZ(0px);
 }
-nav a{
-  text-decoration:none;
-  color:white;
-  padding:10px 30px;
-  background:var(--primary);
-  border-radius:12px;
-  font-weight:bold;
+.game-card:hover {
+  transform:perspective(500px) translateZ(20px);
+  box-shadow:0 10px 30px rgba(255,153,0,0.6);
+}
+
+.placeholder-img {
+  width:100%;
+  height:160px;
+  background:#333;
+  border-radius:15px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:16px;
+}
+
+.game-card h3 {
+  font-size:22px;
+  margin-bottom:15px;
+  letter-spacing:1px;
+  color:#ff4d4d;
+}
+
+.btn-buy {
+  display:block;
+  margin:0 auto;
+  padding:12px 30px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
   transition:0.25s;
 }
-nav a:hover{
-  background:var(--secondary);
-  transform:translateY(-4px);
+.btn-buy:hover {
+  background:#ff9900;
+  transform:translateY(-3px);
 }
 
-/* MAIN */
-main{
-  max-width:1200px;
-  margin:40px auto;
-  padding:20px;
-}
-
-/* SECTION TITLES */
-.section-title{
-  font-family:'Fredoka One', sans-serif;
-  font-size:42px;
-  color:var(--secondary);
+/* Combos */
+section#combo {
+  background:#1a1a1a;
+  border-radius:20px;
+  padding:30px;
+  max-width:900px;
   text-align:center;
-  margin-bottom:20px;
+  box-shadow:0 5px 25px rgba(255,77,77,0.4);
 }
-
-/* GRID */
-.grid{
+section#combo h2 {
+  font-size:32px;
+  color:#ff4d4d;
+  margin-bottom:25px;
+}
+.combo-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-  gap:25px;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
 }
-
-/* CARD */
-.card{
-  padding:28px;
-  border-radius:18px;
-  background:var(--card);
-  border:2px solid #222;
-  box-shadow:0 6px 20px rgba(0,0,0,0.5);
+.combo-card {
+  background:#222;
+  padding:20px;
+  border-radius:15px;
   transition:0.3s;
+  box-shadow:0 5px 15px rgba(255,77,77,0.3);
 }
-.card:hover{
-  transform:scale(1.03);
-  box-shadow:0 10px 25px rgba(255,211,46,0.35);
+.combo-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(255,153,0,0.6);
 }
-.card h2{
-  color:var(--primary);
-  font-size:28px;
+.combo-card h3 {
+  font-size:18px;
+  color:#ff4d4d;
   margin-bottom:10px;
 }
-.card p{
-  color:#cfcfcf;
-  line-height:1.5;
+.combo-card p {
+  font-size:18px;
+  margin-bottom:15px;
 }
-
-/* BUY BUTTON */
-.buy-btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 26px;
-  background:var(--primary);
-  color:white;
-  border-radius:12px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:0.25s;
-}
-.buy-btn:hover{
-  background:var(--secondary);
-  transform:scale(1.06);
-}
-
-/* COMBO BLOCK */
-.combo{
-  padding:30px;
-  background:#111;
-  border-radius:20px;
-  box-shadow:0 6px 22px rgba(255,46,46,0.25);
-  margin-top:50px;
-}
-
-/* FOOTER */
-footer{
+footer {
   text-align:center;
-  padding:20px;
-  color:var(--secondary);
-  opacity:0.8;
+  padding:10px 0;
+  background:#111;
+  color:#ff4d4d;
 }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>ILE ABANDONNÉE</h1>
+<h1>🔥 Ile Abandonnée 🔥</h1>
+<p>Découvrez tous les chapitres disponibles</p>
 </header>
 
 <nav>
@@ -149,77 +131,81 @@ footer{
 
 <main>
 
-  <div class="section-title">Chapitres Individuels</div>
+<section id="games">
 
-  <div class="grid">
-    <div class="card">
-      <h2>Chapitre 1</h2>
-      <p>Le commencement.</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-    <div class="card">
-      <h2>Chapitre 2</h2>
-      <p>L'île réagit.</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-    <div class="card">
-      <h2>Chapitre 3</h2>
-      <p>Les jouets bougent.</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-    <div class="card">
-      <h2>Chapitre 4</h2>
-      <p>La manufacture s'ouvre.</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-    <div class="card">
-      <h2>Chapitre 5</h2>
-      <p>Tension maximum.</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-    <div class="card">
-      <h2>Chapitre 6</h2>
-      <p>Le mystère enfin dévoilé...</p>
-      <a class="buy-btn">Acheter — Shopify</a>
-    </div>
-  </div>
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 1</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
 
-  <div class="section-title" style="margin-top:50px;">Combos</div>
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 2</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
 
-  <div class="combo">
-    <div class="grid">
-      <div class="card">
-        <h2>Ile Abandonnée 1 + 2</h2>
-        <p>Combo d'entrée.</p>
-        <a class="buy-btn">Acheter — Shopify</a>
-      </div>
-      <div class="card">
-        <h2>Ile Abandonnée 1 + 2 + 3</h2>
-        <p>Pack progression.</p>
-        <a class="buy-btn">Acheter — Shopify</a>
-      </div>
-      <div class="card">
-        <h2>1 + 2 + 3 + 4</h2>
-        <p>Pack avancé.</p>
-        <a class="buy-btn">Acheter — Shopify</a>
-      </div>
-      <div class="card">
-        <h2>1 + 2 + 3 + 4 + 5</h2>
-        <p>Pack complet pré-final.</p>
-        <a class="buy-btn">Acheter — Shopify</a>
-      </div>
-      <div class="card">
-        <h2>1 + 2 + 3 + 4 + 5 + 6</h2>
-        <p>Édition totale.</p>
-        <a class="buy-btn">Acheter — Shopify</a>
-      </div>
-    </div>
-  </div>
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 3</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 4</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 5</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Chapitre 6</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+</section>
+
+<section id="combo">
+<h2>Combos</h2>
+<div class="combo-grid">
+
+<div class="combo-card">
+  <h3>1 + 2 + 3 + 4</h3>
+  <p>80€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>1 + 2</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>3 + 4</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>5 + 6</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+</div>
+</section>
 
 </main>
 
 <footer>
-© 2026 Ile Abandonnée — Tous droits réservés
+&copy; 2026 Ile Abandonnée • Tous droits réservés
 </footer>
 
 </body>
