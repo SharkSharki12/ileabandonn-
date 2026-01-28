@@ -1,130 +1,254 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Île Abandonnée — Chapitres</title>
-    <style>
-        body {
-            margin: 0;
-            background: linear-gradient(120deg, #1a0000, #2b0000, #100000);
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ile Abandonnée - Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family:'Orbitron', sans-serif;
+  background:#111;
+  color:#fff;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+header {
+  text-align:center;
+  padding:60px 20px;
+  background: linear-gradient(90deg,#ff4d4d,#ff9900);
+}
+header h1 {
+  font-size:48px;
+  text-shadow:2px 2px 10px #000;
+}
+header p {
+  font-size:18px;
+  margin-top:10px;
+}
+nav {
+  text-align:center;
+  margin:20px 0;
+}
+nav a {
+  display:inline-block;
+  margin:0 10px;
+  padding:10px 25px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:16px;
+  transition:0.25s;
+}
+nav a:hover {
+  background:#ff9900;
+  transform:translateY(-3px);
+}
+main {
+  flex:1;
+  padding:40px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:50px;
+}
 
-        header {
-            padding: 20px;
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            position: relative;
-        }
+/* Games Grid */
+section#games {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  width:100%;
+  max-width:1200px;
+}
+.game-card {
+  background:#1d1d1d;
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(255,77,77,0.3);
+  transition:0.35s;
+  transform:perspective(500px) translateZ(0px);
+}
+.game-card:hover {
+  transform:perspective(500px) translateZ(20px);
+  box-shadow:0 10px 30px rgba(255,153,0,0.6);
+}
+.placeholder-img {
+  width:100%;
+  height:160px;
+  background:#333;
+  border-radius:15px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:16px;
+}
+.game-card h3 {
+  font-size:22px;
+  margin-bottom:15px;
+  letter-spacing:1px;
+  color:#ff4d4d;
+}
+.btn-buy {
+  display:block;
+  margin:0 auto;
+  padding:12px 30px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.25s;
+}
+.btn-buy:hover {
+  background:#ff9900;
+  transform:translateY(-3px);
+}
 
-        .title-flames {
-            filter: drop-shadow(0 0 8px orange);
-            font-size: 45px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 18px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background: rgba(255, 80, 0, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .catalogue {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            padding: 40px 10%;
-        }
-
-        .card {
-            background: rgba(40,0,0,0.7);
-            border: 2px solid rgba(255,100,0,0.3);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255,130,0,0.8);
-            box-shadow: 0 0 18px rgba(255,90,0,0.6);
-        }
-
-        .buy-btn {
-            margin-top: 10px;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            background: linear-gradient(90deg, red, orange);
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .buy-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 12px orange;
-        }
-
-        footer {
-            text-align: center;
-            padding: 12px;
-            font-size: 14px;
-            color: rgb(200,200,200);
-            background: rgba(10,0,0,0.8);
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+/* Combos */
+section#combo {
+  background:#1a1a1a;
+  border-radius:20px;
+  padding:30px;
+  max-width:900px;
+  text-align:center;
+  box-shadow:0 5px 25px rgba(255,77,77,0.4);
+}
+section#combo h2 {
+  font-size:32px;
+  color:#ff4d4d;
+  margin-bottom:25px;
+}
+.combo-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.combo-card {
+  background:#222;
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(255,77,77,0.3);
+}
+.combo-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(255,153,0,0.6);
+}
+.combo-card h3 {
+  font-size:18px;
+  color:#ff4d4d;
+  margin-bottom:10px;
+}
+.combo-card p {
+  font-size:18px;
+  margin-bottom:15px;
+}
+footer {
+  text-align:center;
+  padding:10px 0;
+  background:#111;
+  color:#ff4d4d;
+}
+</style>
 </head>
-
 <body>
 
-<header><span class="title-flames">🔥 Île Abandonnée 🔥</span></header>
+<header>
+<h1>🔥 Ile Abandonnée 🔥</h1>
+<p>Découvrez tous les chapitres disponibles</p>
+</header>
 
 <nav>
-    <a href="index.html">Chapitres</a>
-    <a href="apropos.html">À propos</a>
+  <a href="index.html">Accueil</a>
+  <a href="apropos.html">À propos</a>
 </nav>
 
-<div class="catalogue">
+<main>
 
-    <div class="card">Île Abandonnée Chapitre 1<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Île Abandonnée Chapitre 2<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Île Abandonnée Chapitre 3<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Île Abandonnée Chapitre 4<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Île Abandonnée Chapitre 5<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Île Abandonnée Chapitre 6<br><button class="buy-btn">Acheter</button></div>
+<section id="games">
 
-    <div class="card">Combo Chapitres 1 + 2 + 3<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Combo Chapitres 4 + 5 + 6<br><button class="buy-btn">Acheter</button></div>
-    <div class="card">Combo 1 → 6<br><button class="buy-btn">Acheter</button></div>
-
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 1</h3>
+  <div class="btn-buy">Acheter</div>
 </div>
 
-<footer>© 2026 Île Abandonnée — Tous droits réservés.</footer>
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 2</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 3</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 4</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 5</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="game-card">
+  <div class="placeholder-img">Bande annonce</div>
+  <h3>Ile Abandonnée Chapitre 6</h3>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+</section>
+
+<section id="combo">
+<h2>Combos</h2>
+<div class="combo-grid">
+
+<div class="combo-card">
+  <h3>Ile Abandonnée Chapitres 1+2+3+4</h3>
+  <p>80€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>Ile Abandonnée Chapitres 1+2</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>Ile Abandonnée Chapitres 3+4</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+<div class="combo-card">
+  <h3>Ile Abandonnée Chapitres 5+6</h3>
+  <p>50€</p>
+  <div class="btn-buy">Acheter</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+&copy; 2026 Ile Abandonnée • Tous droits réservés
+</footer>
 
 </body>
 </html>
