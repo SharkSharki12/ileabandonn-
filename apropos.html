@@ -3,57 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>À propos — Île Abandonnée</title>
-
+<title>À propos - Ile Abandonnée</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body{
-    margin:0;
-    background:linear-gradient(120deg,#1a0000,#2b0000,#100000);
-    font-family:Arial;
-    color:white;
-    padding-bottom:60px;
+body {
+  font-family:'Orbitron', sans-serif;
+  background:#111;
+  color:#fff;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
-header{
-    font-size:40px;
-    text-align:center;
-    padding:25px;
-    font-weight:700;
+header {
+  text-align:center;
+  padding:60px 20px;
+  background: linear-gradient(90deg,#ff4d4d,#ff9900);
 }
-.title-flames{filter:drop-shadow(0 0 8px orange);font-size:42px;}
-nav{
-    display:flex;justify-content:center;gap:20px;margin-bottom:30px;
+header h1 {
+  font-size:48px;
+  text-shadow:2px 2px 10px #000;
 }
-nav a{
-    color:white;text-decoration:none;font-weight:600;padding:10px 18px;border-radius:6px;transition:0.3s;
+header p {
+  font-size:18px;
+  margin-top:10px;
 }
-nav a:hover{background:rgba(255,80,0,0.4);transform:translateY(-3px);}
-.text{
-    max-width:900px;margin:auto;font-size:20px;line-height:1.5;padding:0 20px;
+nav {
+  text-align:center;
+  margin:20px 0;
 }
-footer{
-    position:fixed;bottom:0;width:100%;text-align:center;padding:12px;background:rgba(10,0,0,0.8);font-size:14px;color:rgb(200,200,200);
+nav a {
+  display:inline-block;
+  margin:0 10px;
+  padding:10px 25px;
+  background:#ff4d4d;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:16px;
+  transition:0.25s;
+}
+nav a:hover {
+  background:#ff9900;
+  transform:translateY(-3px);
+}
+main {
+  flex:1;
+  padding:40px 20px;
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+section {
+  background:#1d1d1d;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 5px 20px rgba(255,77,77,0.4);
+  transition:0.3s;
+}
+section:hover {
+  box-shadow:0 10px 30px rgba(255,153,0,0.6);
+}
+section h2 {
+  font-size:28px;
+  color:#ff4d4d;
+  margin-bottom:15px;
+}
+section p {
+  font-size:16px;
+  line-height:1.5;
+  color:#ddd;
+}
+footer {
+  text-align:center;
+  padding:10px 0;
+  background:#111;
+  color:#ff4d4d;
 }
 </style>
 </head>
-
 <body>
 
-<header><span class="title-flames">🔥 À propos 🔥</span></header>
+<header>
+<h1>🔥 Ile Abandonnée 🔥</h1>
+<p>À propos</p>
+</header>
 
 <nav>
-<a href="index.html">Chapitres</a>
-<a href="apropos.html">À propos</a>
+  <a href="index.html">Accueil</a>
+  <a href="apropos.html">À propos</a>
 </nav>
 
-<div class="text">
-Île Abandonnée est un projet de jeu narratif et progressif en plusieurs chapitres.
-<br><br>
-Le joueur explore différents lieux, découvre des mystères et débloque des contenus au fil des chapitres.
-<br><br>
-Chaque sortie est publiée séparément et peut être achetée à l'unité ou en pack combiné selon les préférences.
-</div>
+<main>
 
-<footer>© 2026 Île Abandonnée — Tous droits réservés</footer>
+<section>
+  <h2>Notre Vision</h2>
+  <p>Ile Abandonnée a pour objectif d’offrir une série de chapitres immersifs et mystérieux. Chaque sortie vise à surprendre et captiver les joueurs.</p>
+</section>
+
+<section>
+  <h2>Pourquoi ce projet ?</h2>
+  <p>Parce que nous aimons les univers sombres, narratifs, et intenses. L’histoire d’Ile Abandonnée se construit chapitre après chapitre.</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Pour toute question, suggestion ou partenariat, contactez-nous.</p>
+</section>
+
+</main>
+
+<footer>
+&copy; 2026 Ile Abandonnée • Tous droits réservés
+</footer>
 
 </body>
 </html>
