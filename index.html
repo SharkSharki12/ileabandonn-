@@ -3,153 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ile Abandonnée - Boutique Gaming</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<title>Ile Abandonnée — Boutique Officielle</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+
 <style>
-html { scroll-behavior: smooth; }
-body { font-family:'Orbitron', sans-serif; background:#111; color:#fff; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden; }
-
-/* ===== Background animé subtil ===== */
-body::before {
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:radial-gradient(circle at 50% 50%, rgba(255,77,77,0.1), transparent 70%);
-  animation: bgPulse 8s infinite alternate;
-  pointer-events:none;
-  z-index:0;
-}
-@keyframes bgPulse {
-  0% { transform: scale(1); opacity:0.2; }
-  100% { transform: scale(1.2); opacity:0.3; }
+:root{
+  --primary:#FF2E2E;
+  --secondary:#FFD32E;
+  --dark:#0A0A0A;
+  --panel:#111;
+  --card:#1b1b1b;
 }
 
-/* ===== Header ===== */
-header {
-  text-align:center;
+body{
+  margin:0; padding:0;
+  background:var(--dark);
+  color:white;
+  font-family:'Orbitron', sans-serif;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
   padding:80px 20px;
-  background: linear-gradient(90deg,#ff4d4d,#ff9900);
-  background-size:200% 100%;
-  animation: gradientShift 10s infinite alternate;
+  text-align:center;
+  background:linear-gradient(90deg,#FF2E2E,#FFD32E);
+}
+header h1{
+  font-size:60px;
+  font-family:'Fredoka One', sans-serif;
+  color:#fff;
+  text-shadow:3px 3px 10px rgba(0,0,0,0.6);
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:20px 0;
+  opacity:0;
+  animation:slideDown 0.6s ease forwards 0.3s;
+}
+@keyframes slideDown{
+  from{transform:translateY(-20px); opacity:0;}
+  to{transform:translateY(0); opacity:1;}
+}
+nav a{
+  text-decoration:none;
+  color:white;
+  padding:10px 25px;
+  background:var(--primary);
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.25s;
+  box-shadow:0 4px 10px rgba(255,46,46,0.4);
+}
+nav a:hover{
+  background:var(--secondary);
+  transform:translateY(-4px);
+  box-shadow:0 6px 15px rgba(255,211,46,0.6);
+}
+
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+/* CARD CHAPITRES */
+.card{
+  padding:30px;
+  border-radius:20px;
+  background:var(--card);
+  box-shadow:0 6px 20px rgba(0,0,0,0.5);
+  border:2px solid #222;
+  transition:0.3s;
+}
+.card:hover{
+  transform:rotateX(2deg) rotateY(-2deg) scale(1.02);
+  box-shadow:0 10px 25px rgba(255,46,46,0.35);
+}
+.card h2{
+  color:var(--primary);
+  font-size:30px;
+  margin-bottom:10px;
+}
+.card p{
+  color:#ccc;
+  line-height:1.5;
+}
+
+/* BOUTON ACHETER */
+.buy-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 30px;
+  background:var(--primary);
+  color:white;
+  border-radius:12px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:0.25s;
   position:relative;
   overflow:hidden;
 }
-@keyframes gradientShift {
-  0% { background-position:0 0; }
-  100% { background-position:100% 0; }
+.buy-btn:hover{
+  background:var(--secondary);
+  transform:scale(1.06);
 }
-header h1 { font-size:56px; text-shadow:2px 2px 12px #000; z-index:1; position:relative; }
-header p { font-size:18px; margin-top:10px; text-shadow:1px 1px 6px #000; z-index:1; position:relative; }
+.buy-btn:active{
+  transform:scale(0.97);
+}
 
-/* ===== Menu sticky ===== */
-nav {
-  position: sticky;
-  top:0;
-  background:#111;
-  padding:10px 0;
-  z-index:100;
+/* RIPPLE */
+.buy-btn::after{
+  content:"";
+  position:absolute;
+  width:120px; height:120px;
+  background:white;
+  opacity:0.25;
+  border-radius:50%;
+  transform:scale(0);
+  animation:ripple 0.6s ease;
+  top:50%; left:50%;
+  translate:-50% -50%;
+}
+@keyframes ripple{
+  to{transform:scale(3); opacity:0;}
+}
+
+/* FOOTER */
+footer{
   text-align:center;
-  box-shadow:0 2px 10px rgba(255,77,77,0.5);
-}
-nav a {
-  display:inline-block;
-  margin:0 10px;
-  padding:10px 25px;
-  background:#ff4d4d;
-  color:#fff;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:16px;
-  transition:0.3s, box-shadow 0.3s;
-}
-nav a:hover { background:#ff9900; box-shadow:0 0 15px #ff9900; }
-
-/* ===== Main ===== */
-main { flex:1; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:50px; }
-
-/* ===== Section jeux ===== */
-section#games { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1200px; z-index:1; position:relative; }
-.game-card {
-  background:#222;
-  border-radius:20px;
   padding:20px;
-  text-align:center;
-  box-shadow:0 5px 20px rgba(255,77,77,0.5);
-  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s;
-  opacity:0;
-  transform: translateY(50px);
+  color:var(--secondary);
+  opacity:0.8;
 }
-.game-card.show { opacity:1; transform: translateY(0); }
-.game-card .placeholder-img {
-  width:100%;
-  height:150px;
-  background:#333;
-  border-radius:15px;
-  margin-bottom:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:16px;
-}
-.game-card h3 { font-size:24px; color:#ff4d4d; margin-bottom:15px; }
-.game-card .btn-placeholder {
-  display:block;
-  margin:0 auto;
-  padding:12px 30px;
-  background:#ff4d4d;
-  color:#fff;
-  border-radius:10px;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s, box-shadow 0.3s;
-  box-shadow:0 0 0 #ff4d4d;
-}
-.game-card .btn-placeholder:hover { background:#ff9900; box-shadow:0 0 20px #ff9900; }
-
-/* ===== Section combo ===== */
-section#combo { background:#1a1a1a; border-radius:20px; padding:30px; max-width:900px; text-align:center; box-shadow:0 5px 25px rgba(255,77,77,0.4); z-index:1; position:relative; }
-section#combo h2 { font-size:36px; color:#ff4d4d; margin-bottom:30px; }
-section#combo .combo-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
-.combo-card {
-  background:#222;
-  border-radius:15px;
-  padding:20px;
-  box-shadow:0 5px 15px rgba(255,77,77,0.5);
-  transition:0.3s, transform 0.5s, box-shadow 0.5s, opacity 0.5s;
-  text-align:center;
-  opacity:0;
-  transform: translateY(50px);
-}
-.combo-card.show { opacity:1; transform: translateY(0); }
-.combo-card h3 { font-size:20px; color:#ff4d4d; margin-bottom:10px; }
-.combo-card p { font-size:16px; margin-bottom:15px; }
-.combo-card .btn-placeholder {
-  display:block;
-  margin:0 auto;
-  padding:10px 25px;
-  background:#ff4d4d;
-  color:#fff;
-  border-radius:10px;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s, box-shadow 0.3s;
-  box-shadow:0 0 0 #ff4d4d;
-}
-.combo-card .btn-placeholder:hover { background:#ff9900; box-shadow:0 0 20px #ff9900; }
-
-/* ===== Footer ===== */
-footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; position:sticky; bottom:0; width:100%; }
-
-/* ===== Scroll animations JS ===== */
 </style>
 </head>
 <body>
 
 <header>
-<h1>🔥 Ile Abandonnée 🔥</h1>
-<p>Le site où tu peux acheter tous les chapitres</p>
+  <h1>ILE ABANDONNÉE</h1>
 </header>
 
 <nav>
@@ -158,42 +158,31 @@ footer { text-align:center; padding:10px 0; background:#111; color:#ff4d4d; posi
 </nav>
 
 <main>
-  <!-- Section Jeux -->
-  <section id="games">
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 1</h3><div class="btn-placeholder">Acheter</div></div>
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 2</h3><div class="btn-placeholder">Acheter</div></div>
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 3</h3><div class="btn-placeholder">Acheter</div></div>
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 4</h3><div class="btn-placeholder">Acheter</div></div>
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 5</h3><div class="btn-placeholder">Acheter</div></div>
-    <div class="game-card"><div class="placeholder-img">Bande-annonce à ajouter</div><h3>Ile Abandonnée Chapitre 6</h3><div class="btn-placeholder">Acheter</div></div>
-  </section>
+  <!-- CHAPITRE 1 -->
+  <div class="card">
+    <h2>Ile Abandonnée — Chapitre 1</h2>
+    <p>Le début du cauchemar. Explorez l'île et découvrez ce qui s'y cache...</p>
+    <a class="buy-btn">Acheter — 4,99€</a>
+  </div>
 
-  <!-- Section Combo -->
-  <section id="combo">
-    <h2>Combo spécial</h2>
-    <div class="combo-grid">
-      <div class="combo-card"><h3>Ile Abandonnée Chapitre 1+2+3+4</h3><p>80€</p><div class="btn-placeholder">Acheter</div></div>
-      <div class="combo-card"><h3>Ile Abandonnée Chapitre 1+2</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
-      <div class="combo-card"><h3>Ile Abandonnée Chapitre 3+4</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
-      <div class="combo-card"><h3>Ile Abandonnée Chapitre 5+6</h3><p>50€</p><div class="btn-placeholder">Acheter</div></div>
-    </div>
-  </section>
+  <!-- CHAPITRE 2 -->
+  <div class="card">
+    <h2>Ile Abandonnée — Chapitre 2</h2>
+    <p>Les jouets ne sont pas seuls. Les premières anomalies apparaissent.</p>
+    <a class="buy-btn">Acheter — 5,99€</a>
+  </div>
+
+  <!-- CHAPITRE 3 -->
+  <div class="card">
+    <h2>Ile Abandonnée — Chapitre 3</h2>
+    <p>La manufacture ouvre ses portes. Les choses deviennent sérieuses.</p>
+    <a class="buy-btn">Acheter — 7,99€</a>
+  </div>
 </main>
 
 <footer>
-&copy; 2026 Ile Abandonnée • Tous droits réservés
+© 2026 Ile Abandonnée — Tous droits réservés
 </footer>
-
-<script>
-// ===== Animation au scroll =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('show');
-  });
-},{ threshold: 0.2 });
-
-document.querySelectorAll('.game-card, .combo-card').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
