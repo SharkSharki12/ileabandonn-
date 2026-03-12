@@ -1,6 +1,7 @@
-```html
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
 
 <meta charset="UTF-8">
@@ -66,10 +67,9 @@ header{
 text-align:center;
 padding:90px 20px;
 background:linear-gradient(90deg,#020617,#0b1a3a);
-border-bottom:1px solid #0b1a3a;
 }
 
-/* GLITCH TITLE */
+/* TITLE */
 
 header h1{
 font-size:55px;
@@ -224,10 +224,7 @@ z-index:-1;
 
 <nav>
 
-<a href="index.html">Accueil</a>
-<a href="chap1.html">Chapitre 1</a>
-<a href="apropos.html">À propos</a>
-<a href="contact.html">Contact</a>
+<a href="index.html">Accueil</a> <a href="chap1.html">Chapitre 1</a> <a href="apropos.html">À propos</a> <a href="contact.html">Contact</a>
 
 </nav>
 
@@ -261,24 +258,24 @@ En savoir +
 
 <script>
 
-/* ===== FLASHLIGHT CURSOR ===== */
+/* FLASHLIGHT */
 
-const light = document.getElementById("flashlight");
+const light=document.getElementById("flashlight");
 
-document.addEventListener("mousemove", e=>{
-light.style.left = e.clientX + "px";
-light.style.top = e.clientY + "px";
+document.addEventListener("mousemove",e=>{
+light.style.left=e.clientX+"px";
+light.style.top=e.clientY+"px";
 });
 
-/* ===== RAIN EFFECT ===== */
+/* RAIN */
 
-const canvas = document.getElementById("rain");
-const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("rain");
+const ctx=canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
-let rainDrops = [];
+let rainDrops=[];
 
 for(let i=0;i<500;i++){
 rainDrops.push({
@@ -314,7 +311,7 @@ drop.x=Math.random()*canvas.width;
 
 setInterval(rain,30);
 
-/* ===== LIGHTNING ===== */
+/* LIGHTNING */
 
 function lightning(){
 
@@ -334,7 +331,7 @@ lightning();
 }
 },2000);
 
-/* ===== AMBIENT SOUND ===== */
+/* AMBIENT SOUND */
 
 document.body.addEventListener("click",()=>{
 document.getElementById("ambience").play();
@@ -344,4 +341,4 @@ document.getElementById("ambience").play();
 
 </body>
 </html>
-```
+
